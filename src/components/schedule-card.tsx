@@ -31,7 +31,8 @@ const cardVariants = {
   })
 }
 
-export function ScheduleCard({ id, title, time, venue, category, featured, description, index }: ScheduleCardProps) {
+export function ScheduleCard({ title, time, venue, category, featured, description, index }: ScheduleCardProps) {
+  // id is removed as it's unused
   // Get appropriate image based on event category
   const getEventImage = () => {
     switch(category) {

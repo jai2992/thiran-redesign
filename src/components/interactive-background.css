@@ -1,0 +1,138 @@
+.interactive-background-container {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(to bottom, #000000, #080014);
+}
+
+.interactive-background-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.circuit-pattern-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image: url("/images/grid.svg");
+  background-size: 100px 100px;
+  transform: translateX(var(--mouse-offset-x, 0)) translateY(var(--mouse-offset-y, 0));
+  transition: transform 0.3s ease-out;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: url("/images/noise.svg");
+  background-size: 200px 200px;
+}
+
+.stars-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.star-blue {
+  background-color: hsl(var(--neon-blue));
+  box-shadow: 0 0 10px hsl(var(--neon-blue));
+}
+
+.star-purple {
+  background-color: hsl(var(--neon-purple));
+  box-shadow: 0 0 10px hsl(var(--neon-purple));
+}
+
+.star-magenta {
+  background-color: hsl(var(--neon-magenta));
+  box-shadow: 0 0 10px hsl(var(--neon-magenta));
+}
+
+.orbs-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.orb-blue {
+  background: radial-gradient(circle at center, hsla(var(--neon-blue), 0.2) 0%, transparent 70%);
+}
+
+.orb-purple {
+  background: radial-gradient(circle at center, hsla(var(--neon-purple), 0.2) 0%, transparent 70%);
+}
+
+.orb-magenta {
+  background: radial-gradient(circle at center, hsla(var(--neon-magenta), 0.2) 0%, transparent 70%);
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  .circuit-pattern-overlay {
+    opacity: 0.05;
+    background-size: 60px 60px;
+  }
+  
+  .noise-overlay {
+    opacity: 0.15;
+    background-size: 120px 120px;
+  }
+  
+  /* Reduced motion for mobile */
+  .star, .orb {
+    transition-duration: 0s !important;
+    animation-duration: 4s !important;
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .circuit-pattern-overlay {
+    transition: none !important;
+  }
+  
+  .star, .orb {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .interactive-background-canvas {
+    opacity: 0.5;
+  }
+}
+
+/* Battery saver mode detection if supported by browser */
+@media (prefers-reduced-data: reduce) {
+  .circuit-pattern-overlay,
+  .noise-overlay {
+    display: none;
+  }
+  
+  .star, .orb {
+    display: none;
+  }
+  
+  .interactive-background-canvas {
+    opacity: 0.3;
+  }
+}

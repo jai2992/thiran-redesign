@@ -5,6 +5,7 @@ import { MainNav } from "@/components/main-nav"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
 import { FiUser, FiMail, FiPhone, FiMapPin, FiCheckCircle, FiLoader } from "react-icons/fi"
+import Link from "next/link"
 
 const collegesList = [
   "Sri Eshwar College of Engineering",
@@ -114,7 +115,7 @@ export default function RegisterPage() {
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Join us for three days of innovation, creativity, and competition. 
-              Register now to secure your spot at Sri Eshwar College's premier fest.
+              Register now to secure your spot at Sri Eshwar College&apos;s premier fest.
             </p>
           </div>
           
@@ -136,7 +137,7 @@ export default function RegisterPage() {
                   Thank you for registering for Thiran 2025. 
                 </p>
                 <p className="text-gray-400 mb-8">
-                  We've sent a confirmation email with all the details. 
+                  We&apos;ve sent a confirmation email with all the details. 
                   Check your inbox and get ready for an amazing experience!
                 </p>
                 
@@ -146,14 +147,13 @@ export default function RegisterPage() {
                     className="px-6 py-3 border border-gray-700 rounded-lg hover:bg-black/30 transition-colors"
                   >
                     Register Another
-                  </button>
-                  
-                  <a
+                  </button>                  
+                  <Link
                     href="/events"
                     className="px-6 py-3 bg-gradient-to-r from-[hsl(var(--neon-blue))] to-[hsl(var(--neon-purple))] rounded-lg hover:opacity-90 transition-opacity"
                   >
                     Explore Events
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             ) : (
@@ -460,7 +460,7 @@ export default function RegisterPage() {
                                 onChange={handleRadioChange}
                                 className="w-5 h-5 bg-black/30 border border-gray-700 rounded-full focus:ring-[hsl(var(--neon-blue))]"
                               />
-                              <label htmlFor="accommodation-no" className="ml-3 text-sm">No, I'll manage on my own</label>
+                              <label htmlFor="accommodation-no" className="ml-3 text-sm">No, I&apos;ll manage on my own</label>
                             </div>
                           </div>
                         </div>

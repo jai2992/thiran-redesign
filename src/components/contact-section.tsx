@@ -4,8 +4,7 @@ import React, { useState } from "react"
 import { motion } from "framer-motion"
 import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi"
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa"
-import Image from "next/image"
-import { images } from "@/config/images"
+// Image and images are removed as they're unused
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -85,7 +84,7 @@ export function ContactSection() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-semibold mb-2">Message Sent!</h3>
-                  <p className="text-gray-300">We'll get back to you as soon as possible.</p>
+                  <p className="text-gray-300">We&apos;ll get back to you as soon as possible.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">

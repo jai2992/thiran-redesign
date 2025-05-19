@@ -6,7 +6,7 @@ import { MainNav } from "@/components/main-nav"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+// motion is removed as it's unused
 import { FiCalendar, FiClock, FiMapPin, FiUsers, FiAward, FiInfo, FiChevronLeft } from "react-icons/fi"
 
 // Sample event data - in a real app, this would be fetched from an API or database
@@ -53,7 +53,8 @@ const eventsData = [
 
 export default function EventDetailPage() {
   const { eventId } = useParams()
-  const [event, setEvent] = useState<any>(null)
+  // Replacing 'any' with a more specific type
+  const [event, setEvent] = useState<typeof eventsData[0] | null>(null)
   const [loading, setLoading] = useState(true)
   const [registering, setRegistering] = useState(false)
   const [registered, setRegistered] = useState(false)
@@ -100,7 +101,7 @@ export default function EventDetailPage() {
         <main className="pt-32 pb-20 px-4 min-h-screen">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">Event Not Found</h1>
-            <p className="text-xl text-gray-400 mb-8">The event you're looking for doesn't exist or has been removed.</p>
+            <p className="text-xl text-gray-400 mb-8">The event you&apos;re looking for doesn&apos;t exist or has been removed.</p>
             <Link
               href="/events"
               className="px-6 py-3 bg-gradient-to-r from-[hsl(var(--neon-blue))] to-[hsl(var(--neon-purple))] rounded-lg hover:opacity-90 transition-opacity inline-flex items-center"
@@ -283,7 +284,7 @@ export default function EventDetailPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">You're Registered!</h4>
+                    <h4 className="text-lg font-semibold text-white mb-2">You&apos;re Registered!</h4>
                     <p className="text-gray-400 text-sm mb-4">Check your email for confirmation and details.</p>
                   </div>
                 ) : (

@@ -39,12 +39,12 @@ const cardVariants = {
   }
 }
 
-// Button animation variants
-const buttonVariants = {
-  rest: { scale: 1 },
-  hover: { scale: 1.05 },
-  tap: { scale: 0.95 }
-}
+// Button animation variants - currently not used but kept for future use
+// const buttonVariants = {
+//  rest: { scale: 1 },
+//  hover: { scale: 1.05 },
+//  tap: { scale: 0.95 }
+//}
 
 export function EventCard({ id, title, category, image: providedImage, date, time, venue, teamSize, featured = false, index }: EventCardProps) {
   // Handle image fallback and dynamically get an image if none provided
@@ -111,7 +111,8 @@ export function EventCard({ id, title, category, image: providedImage, date, tim
     }
   }
   
-  const { gradient, glow, textGlow, pulseColor } = categoryStyles[category]
+  const { gradient, glow } = categoryStyles[category]
+  // textGlow and pulseColor are removed as they're unused
 
   return (
     <motion.div

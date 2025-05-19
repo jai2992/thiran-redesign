@@ -2,13 +2,14 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
+// Image is removed as it's unused
 import { usePathname } from "next/navigation"
-import { FiMenu, FiX } from "react-icons/fi"
+import { FiMenu } from "react-icons/fi"
+// FiX is removed as it's unused
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTheme } from "next-themes"
-import { images } from "@/config/images"
+// images is removed as it's unused
 
 interface NavItem {
   name: string
@@ -41,7 +42,7 @@ export function MainNav() {
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
-  }  
+  }
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Theme toggle positioned at the top right */}

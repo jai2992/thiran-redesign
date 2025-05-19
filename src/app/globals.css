@@ -61,6 +61,7 @@ body {
   color: hsl(var(--foreground));
   font-family: var(--font-poppins, sans-serif);
   font-feature-settings: "rlig" 1, "calt" 1;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,15 +70,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Utility classes */
 .glassmorphism {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
 .neumorphism {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.05);
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.neumorphism:hover {
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4), -8px -8px 20px rgba(255, 255, 255, 0.03);
+  transform: translateY(-2px);
 }
 
 .dark .neumorphism {
@@ -85,30 +93,99 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .neon-glow-blue {
-  box-shadow: 0 0 5px hsl(var(--neon-blue)), 0 0 20px hsl(var(--neon-blue));
+  box-shadow: 0 0 5px hsl(var(--neon-blue)), 
+             0 0 20px hsl(var(--neon-blue)),
+             0 0 40px rgba(0, 157, 255, 0.2);
+  animation: pulse-blue 2s infinite;
 }
 
 .neon-glow-purple {
-  box-shadow: 0 0 5px hsl(var(--neon-purple)), 0 0 20px hsl(var(--neon-purple));
+  box-shadow: 0 0 5px hsl(var(--neon-purple)), 
+             0 0 20px hsl(var(--neon-purple)),
+             0 0 40px rgba(157, 0, 255, 0.2);
+  animation: pulse-purple 2.5s infinite;
 }
 
 .neon-glow-magenta {
-  box-shadow: 0 0 5px hsl(var(--neon-magenta)), 0 0 20px hsl(var(--neon-magenta));
+  box-shadow: 0 0 5px hsl(var(--neon-magenta)), 
+             0 0 20px hsl(var(--neon-magenta)),
+             0 0 40px rgba(255, 0, 157, 0.2);
+  animation: pulse-magenta 3s infinite;
+}
+
+@keyframes pulse-blue {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-purple {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes pulse-magenta {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.8; }
 }
 
 .text-glow-blue {
   color: hsl(var(--neon-blue));
-  filter: drop-shadow(0 0 5px hsl(var(--neon-blue)));
+  text-shadow: 0 0 5px hsl(var(--neon-blue)),
+              0 0 20px hsl(var(--neon-blue));
+  animation: text-flicker 3s infinite;
 }
 
 .text-glow-purple {
   color: hsl(var(--neon-purple));
-  filter: drop-shadow(0 0 5px hsl(var(--neon-purple)));
+  text-shadow: 0 0 5px hsl(var(--neon-purple)),
+              0 0 20px hsl(var(--neon-purple));
+  animation: text-flicker 4s infinite;
 }
 
 .text-glow-magenta {
   color: hsl(var(--neon-magenta));
-  filter: drop-shadow(0 0 5px hsl(var(--neon-magenta)));
+  text-shadow: 0 0 5px hsl(var(--neon-magenta)),
+              0 0 20px hsl(var(--neon-magenta));
+  animation: text-flicker 5s infinite;
+}
+
+@keyframes text-flicker {
+  0% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  95% { opacity: 0.9; }
+  96% { opacity: 1; }
+  97% { opacity: 0.8; }
+  98% { opacity: 1; }
+  99% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* Hover effects */
+.neon-hover {
+  transition: all 0.3s ease;
+}
+
+.neon-hover:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+/* Background animation */
+.bg-animate {
+  background: linear-gradient(45deg, #000000, #0a0a0a, #000000);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Animation classes */
@@ -120,4 +197,108 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced neon effects */
+@keyframes neon-pulse {
+  0% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.7; filter: brightness(0.8); }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
+@keyframes neon-flicker {
+  0% { opacity: 1; }
+  8% { opacity: 0.8; }
+  9% { opacity: 1; }
+  12% { opacity: 0.9; }
+  20% { opacity: 1; }
+  60% { opacity: 1; }
+  62% { opacity: 0.8; }
+  70% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.neon-text-blue {
+  color: hsl(var(--neon-blue));
+  text-shadow: 
+    0 0 5px hsl(var(--neon-blue)),
+    0 0 10px hsl(var(--neon-blue)),
+    0 0 15px hsl(var(--neon-blue)),
+    0 0 20px hsl(var(--neon-blue));
+  animation: neon-pulse 3s infinite;
+}
+
+.neon-text-purple {
+  color: hsl(var(--neon-purple));
+  text-shadow: 
+    0 0 5px hsl(var(--neon-purple)),
+    0 0 10px hsl(var(--neon-purple)),
+    0 0 15px hsl(var(--neon-purple)),
+    0 0 20px hsl(var(--neon-purple));
+  animation: neon-pulse 4s infinite;
+}
+
+.neon-text-magenta {
+  color: hsl(var(--neon-magenta));
+  text-shadow: 
+    0 0 5px hsl(var(--neon-magenta)),
+    0 0 10px hsl(var(--neon-magenta)),
+    0 0 15px hsl(var(--neon-magenta)),
+    0 0 20px hsl(var(--neon-magenta));
+  animation: neon-pulse 5s infinite;
+}
+
+.neon-border {
+  position: relative;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, hsl(var(--neon-blue)), hsl(var(--neon-purple)), hsl(var(--neon-magenta)));
+  opacity: 0.7;
+  z-index: -1;
+  animation: neon-flicker 6s infinite;
+}
+
+.neon-button {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.neon-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, hsl(var(--neon-blue)), hsl(var(--neon-purple)), hsl(var(--neon-magenta)));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.neon-button:hover::before {
+  opacity: 0.7;
+}
+
+/* Interactive elements background animation */
+@keyframes interactive-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.interactive-bg {
+  background: linear-gradient(-45deg, 
+    rgba(hsl(var(--neon-blue)), 0.1), 
+    rgba(hsl(var(--neon-purple)), 0.1), 
+    rgba(hsl(var(--neon-magenta)), 0.1)
+  );
+  background-size: 400% 400%;
+  animation: interactive-bg 15s ease infinite;
 }

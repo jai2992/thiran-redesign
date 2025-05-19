@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins, Orbitron } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { BackgroundWrapper } from "@/components/background-wrapper";
+import { BackgroundToggle } from "@/components/background-toggle";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -31,7 +33,10 @@ export default function RootLayout({
         className={`${poppins.variable} ${orbitron.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <BackgroundWrapper>
+            <BackgroundToggle />
+            {children}
+          </BackgroundWrapper>
         </ThemeProvider>
       </body>
     </html>

@@ -1,7 +1,7 @@
 import { MainNav } from "@/components/main-nav"
 import { Footer } from "@/components/footer"
 import { ContactSection } from "@/components/contact-section"
-import { MapSection } from "@/components/map-section"
+// MapSection is removed as it's unused
 import Image from "next/image"
 import { images } from "@/config/images"
 

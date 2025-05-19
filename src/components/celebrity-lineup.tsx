@@ -175,7 +175,7 @@ export function CelebrityLineup() {
                       </p>
                       
                       <p className="text-gray-300 mb-8 max-w-md">
-                        Don't miss this extraordinary performance that will transform your festival experience.
+                        Don&apos;t miss this extraordinary performance that will transform your festival experience.
                       </p>
                       
                       {/* Social Media Links */}

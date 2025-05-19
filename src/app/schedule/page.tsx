@@ -4,8 +4,9 @@ import { useState } from "react"
 import { MainNav } from "@/components/main-nav"
 import { Footer } from "@/components/footer"
 import { motion, AnimatePresence } from "framer-motion"
-import { FiClock, FiMapPin, FiCalendar, FiStar } from "react-icons/fi"
-import { images } from "@/config/images"
+import { FiCalendar, FiStar } from "react-icons/fi"
+// FiClock and FiMapPin are removed as they're unused
+// images is removed as it's unused
 import { ScheduleCard } from "@/components/schedule-card"
 
 interface ScheduleEvent {
@@ -260,7 +261,7 @@ export default function SchedulePage() {
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Plan your Thiran experience with our comprehensive festival schedule.
-              Don't miss any of the exciting events across all three days!
+              Don&apos;t miss any of the exciting events across all three days!
             </p>
           </div>
           

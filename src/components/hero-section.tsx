@@ -83,62 +83,64 @@ export function HeroSection() {
       
       setTimeLeft({ days, hours, minutes, seconds })
     }, 1000)
-    
-    return () => clearInterval(interval)
-  }, [])
-
+      return () => clearInterval(interval)
+  }, []);
+  
   return (
     <section 
       ref={heroRef}
       className="relative min-h-screen overflow-hidden flex flex-col justify-center"
-      style={{
-        backgroundImage: "radial-gradient(circle at center, rgba(50, 0, 100, 0.3) 0%, transparent 80%)",
-      }}
     >
-      {/* Background elements that move with mouse */}
-      <div 
-        className="absolute inset-0 z-0 opacity-30"
-        style={{ 
-          backgroundImage: "url('/grid.svg')",
-          transform: `translateX(${mousePosition.x * -10}px) translateY(${mousePosition.y * -10}px)`,
-          transition: "transform 0.3s ease-out"
-        }}
-      />
-      
-      {/* Floating orbs */}
+        {/* Floating orbs */}
       <motion.div
         variants={floatAnimation}
         initial="initial"
         animate="animate"
-        className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full neon-glow-blue opacity-20 blur-xl"
+        className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full neon-glow-blue opacity-30 blur-xl neon-hover"
         style={{ 
           background: "radial-gradient(circle at center, hsl(var(--neon-blue)), transparent 70%)",
-          transform: `translateX(${mousePosition.x * 20}px) translateY(${mousePosition.y * 20}px)`
+          transform: `translateX(${mousePosition.x * 25}px) translateY(${mousePosition.y * 25}px)`
         }}
+        whileHover={{ scale: 1.2, opacity: 0.4 }}
       />
       
       <motion.div
         variants={floatAnimation}
         initial="initial"
         animate="animate"
-        className="absolute bottom-1/3 left-1/4 w-40 h-40 rounded-full neon-glow-purple opacity-20 blur-xl"
+        className="absolute bottom-1/3 left-1/4 w-40 h-40 rounded-full neon-glow-purple opacity-30 blur-xl neon-hover"
         style={{ 
           background: "radial-gradient(circle at center, hsl(var(--neon-purple)), transparent 70%)",
-          transform: `translateX(${mousePosition.x * -30}px) translateY(${mousePosition.y * -30}px)`,
+          transform: `translateX(${mousePosition.x * -35}px) translateY(${mousePosition.y * -35}px)`,
           animationDelay: "1s"
         }}
+        whileHover={{ scale: 1.2, opacity: 0.4 }}
       />
       
       <motion.div
         variants={floatAnimation}
         initial="initial"
         animate="animate"
-        className="absolute top-2/3 right-1/3 w-24 h-24 rounded-full neon-glow-magenta opacity-20 blur-xl"
+        className="absolute top-2/3 right-1/3 w-24 h-24 rounded-full neon-glow-magenta opacity-30 blur-xl neon-hover"
         style={{ 
           background: "radial-gradient(circle at center, hsl(var(--neon-magenta)), transparent 70%)",
-          transform: `translateX(${mousePosition.x * 40}px) translateY(${mousePosition.y * 40}px)`,
+          transform: `translateX(${mousePosition.x * 45}px) translateY(${mousePosition.y * 45}px)`,
           animationDelay: "2s"
         }}
+        whileHover={{ scale: 1.2, opacity: 0.4 }}
+      />
+      
+      <motion.div
+        variants={floatAnimation}
+        initial="initial"
+        animate="animate"
+        className="absolute top-1/3 left-1/3 w-16 h-16 rounded-full neon-glow-blue opacity-20 blur-xl neon-hover"
+        style={{ 
+          background: "radial-gradient(circle at center, hsl(var(--neon-blue)), transparent 70%)",
+          transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)`,
+          animationDelay: "3s"
+        }}
+        whileHover={{ scale: 1.2, opacity: 0.4 }}
       />
       
       {/* Hero content */}

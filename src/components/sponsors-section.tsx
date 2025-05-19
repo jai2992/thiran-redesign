@@ -20,7 +20,7 @@ export function SponsorsSection() {
             Our <span className="text-glow-blue">Sponsors</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            We're proud to partner with these amazing organizations to bring Thiran 2025 to life.
+            We&apos;re proud to partner with these amazing organizations to bring Thiran 2025 to life.
           </p>
         </motion.div>
         

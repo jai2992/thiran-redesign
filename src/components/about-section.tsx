@@ -27,7 +27,7 @@ export function AboutSection() {
             transition={{ delay: 0.2 }}
             className="text-xl text-gray-300 max-w-2xl mx-auto"
           >
-            Discover the story behind Sri Eshwar College's premier national-level techno-cultural-sports festival.
+            Discover the story behind Sri Eshwar College&apos;s premier national-level techno-cultural-sports festival.
           </motion.p>
         </div>
         
@@ -65,7 +65,7 @@ export function AboutSection() {
             <h3 className="text-2xl font-semibold font-display">A Legacy of Excellence</h3>
             
             <p className="text-gray-300">
-              Thiran is Sri Eshwar College of Engineering's flagship festival that brings together students 
+              Thiran is Sri Eshwar College of Engineering&apos;s flagship festival that brings together students 
               from across the country to showcase their talents in technology, arts, and sports. Since its 
               inception, Thiran has been a platform for innovation, creativity, and sportsmanship.
             </p>
