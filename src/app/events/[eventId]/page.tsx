@@ -51,6 +51,13 @@ const eventsData = [
   // Add more events as needed
 ]
 
+// Generate static parameters for all events at build time
+export function generateStaticParams() {
+  return eventsData.map((event) => ({
+    eventId: event.id,
+  }))
+}
+
 export default function EventDetailPage() {
   const { eventId } = useParams()
   // Replacing 'any' with a more specific type
